@@ -2,41 +2,41 @@
 <html lang="{{ app()->getLocale() }}">
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="msapplication-tap-highlight" content="no">
-  <meta name="description" content="Automatizando a captação de energia solar, aumentando em 40 por cento a taxa de aproveitamento">
-  <meta name="keywords" content="Energia solar, painel fotovoltaico, captação de energia, painel solar, sol, geração, energia, sustentabilidade, energia sustentável, energia limpa, economizar, economia, independência">
-  <!-- CSRF Token -->
-  <meta name="csrf-token" content="{{ csrf_token() }}">
-  <title>Solar </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="description" content="Automatizando a captação de energia solar, aumentando em 40 por cento a taxa de aproveitamento">
+    <meta name="keywords" content="Energia solar, painel fotovoltaico, captação de energia, painel solar, sol, geração, energia, sustentabilidade, energia sustentável, energia limpa, economizar, economia, independência">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>{{ config('app.name', 'Solar Sistem') }} - Sistema de monitoramento online</title>
 
-  <!-- Favicons-->
-  <link rel="icon" href="{{ asset(images/favicon/favicon-32x32.png) }}" sizes="32x32">
-  <!-- Favicons-->
-  <link rel="apple-touch-icon-precomposed" href="{{ asset(images/favicon/apple-touch-icon-152x152.png) }}">
-  <!-- For iPhone -->
-  <meta name="msapplication-TileColor" content="#00bcd4">
-  <meta name="msapplication-TileImage" content="{{ asset(images/favicon/mstile-144x144.png) }}">
-  <!-- For Windows Phone -->
+    <!-- Favicons-->
+    <link rel="icon" href="images/favicon/favicon-32x32.png" sizes="32x32">
+    <!-- Favicons-->
+    <link rel="apple-touch-icon-precomposed" href="images/favicon/apple-touch-icon-152x152.png">
+    <!-- For iPhone -->
+    <meta name="msapplication-TileColor" content="#00bcd4">
+    <meta name="msapplication-TileImage" content="images/favicon/mstile-144x144.png">
+    <!-- For Windows Phone -->
 
-  <!-- CORE CSS-->
-  <link href="{{ asset(css/materialize.css) }}" type="text/css" rel="stylesheet" media="screen,projection">
-  <link href="{{ asset(css/style.css) }}" type="text/css" rel="stylesheet" media="screen,projection">
-  <!-- Custome CSS-->    
-  <link href="{{ asset(css/custom/custom.css) }}" type="text/css" rel="stylesheet" media="screen,projection">
+    <!-- CORE CSS-->
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <!-- Custome CSS-->
+    <link href="css/custom/custom.css" type="text/css" rel="stylesheet" media="screen,projection">
 
-  <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
-  <link href="{{ asset(js/plugins/prism/prism.css) }}" type="text/css" rel="stylesheet" media="screen,projection">
-  <link href="{{ asset(js/plugins/perfect-scrollbar/perfect-scrollbar.css) }}" type="text/css" rel="stylesheet" media="screen,projection">
-  <link href="{{ asser(js/plugins/chartist-js/chartist.min.css) }}" type="text/css" rel="stylesheet" media="screen,projection">
+    <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
+    <link href="js/plugins/prism/prism.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="js/plugins/perfect-scrollbar/perfect-scrollbar.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="js/plugins/chartist-js/chartist.min.css" type="text/css" rel="stylesheet" media="screen,projection">
 </head>
 
 <body>
   <!-- Start Page Loading -->
   <div id="loader-wrapper">
-      <div id="loader"></div>        
+      <div id="loader"></div>
       <div class="loader-section section-left"></div>
       <div class="loader-section section-right"></div>
   </div>
@@ -50,41 +50,13 @@
         <div class="navbar-fixed">
             <nav class="navbar-color">
                 <div class="nav-wrapper">
-                    <ul class="left">                      
+                    <ul class="left">
                       <li><h1 class="logo-wrapper"><a href="index.html" class="brand-logo darken-1"><img src="images/materialize-logo.png" alt="materialize logo"></a> <span class="logo-text">Materialize</span></h1></li>
                     </ul>
                     <div class="header-search-wrapper hide-on-med-and-down">
                         <i class="mdi-action-search"></i>
-                        <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Explore Materialize"/>
+                        <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Buscar no sistema..."/>
                     </div>
-                    <ul class="right hide-on-med-and-down">
-                        <li><a href="javascript:void(0);" class="waves-effect waves-block waves-light translation-button"  data-activates="translation-dropdown"><img src="images/flag-icons/United-States.png" alt="USA" /></a>
-                        </li>
-                        <li><a href="javascript:void(0);" class="waves-effect waves-block waves-light toggle-fullscreen"><i class="mdi-action-settings-overscan"></i></a>
-                        </li>
-                        <li><a href="javascript:void(0);" class="waves-effect waves-block waves-light notification-button" data-activates="notifications-dropdown"><i class="mdi-social-notifications"><small class="notification-badge">5</small></i>
-                        
-                        </a>
-                        </li>                        
-                        <li><a href="#" data-activates="chat-out" class="waves-effect waves-block waves-light chat-collapse"><i class="mdi-communication-chat"></i></a>
-                        </li>
-                    </ul>
-                    <!-- translation-button -->
-                    <ul id="translation-dropdown" class="dropdown-content">
-                      <li>
-                        <a href="#!"><img src="images/flag-icons/United-States.png" alt="English" />  <span class="language-select">English</span></a>
-                      </li>
-                      <li>
-                        <a href="#!"><img src="images/flag-icons/France.png" alt="French" />  <span class="language-select">French</span></a>
-                      </li>
-                      <li>
-                        <a href="#!"><img src="images/flag-icons/China.png" alt="Chinese" />  <span class="language-select">Chinese</span></a>
-                      </li>
-                      <li>
-                        <a href="#!"><img src="images/flag-icons/Germany.png" alt="German" />  <span class="language-select">German</span></a>
-                      </li>
-                      
-                    </ul>
                     <!-- notifications-dropdown -->
                     <ul id="notifications-dropdown" class="dropdown-content">
                       <li>
@@ -103,14 +75,6 @@
                         <a href="#!"><i class="mdi-action-settings"></i> Settings updated</a>
                         <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">4 days ago</time>
                       </li>
-                      <li>
-                        <a href="#!"><i class="mdi-editor-insert-invitation"></i> Director meeting started</a>
-                        <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">6 days ago</time>
-                      </li>
-                      <li>
-                        <a href="#!"><i class="mdi-action-trending-up"></i> Generate monthly report</a>
-                        <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">1 week ago</time>
-                      </li>
                     </ul>
                 </div>
             </nav>
@@ -125,7 +89,6 @@
   <div id="main">
     <!-- START WRAPPER -->
     <div class="wrapper">
-
       <!-- START LEFT SIDEBAR NAV-->
       <aside id="left-sidebar-nav">
         <ul id="slide-out" class="side-nav fixed leftside-navigation">
@@ -136,24 +99,32 @@
                 </div>
                 <div class="col col s8 m8 l8">
                     <ul id="profile-dropdown" class="dropdown-content">
-                        <li><a href="#"><i class="mdi-action-face-unlock"></i> Profile</a>
+                        <li>
+                            <a href="#"><i class="mdi-action-face-unlock"></i> Profile</a>
                         </li>
-                        <li><a href="#"><i class="mdi-action-settings"></i> Settings</a>
+                        <li>
+                            <a href="#"><i class="mdi-action-settings"></i> Settings</a>
                         </li>
-                        <li><a href="#"><i class="mdi-communication-live-help"></i> Help</a>
+                        <li>
+                            <a href="#"><i class="mdi-communication-live-help"></i> Help</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="#"><i class="mdi-action-lock-outline"></i> Lock</a>
+                        <li>
+                            <a href="#"><i class="mdi-action-lock-outline"></i> Lock</a>
                         </li>
-                        <li><a href="#"><i class="mdi-hardware-keyboard-tab"></i> Logout</a>
+                        <li>
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="mdi-hardware-keyboard-tab"></i> Logout</a>
                         </li>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
                     </ul>
-                    <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown">John Doe<i class="mdi-navigation-arrow-drop-down right"></i></a>
+                    <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown">{{ Auth::user()->name }}<i class="mdi-navigation-arrow-drop-down right"></i></a>
                     <p class="user-roal">Administrator</p>
                 </div>
             </div>
             </li>
-            <li class="bold"><a href="index.html" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Dashboard</a>
+            <li class="bold"><a href="{{ route('dashboard') }}" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Dashboard</a>
             </li>
             <li class="no-padding">
                 <ul class="collapsible collapsible-accordion">
@@ -285,7 +256,7 @@
                     </li>
                     <li class="bold"><a class="collapsible-header  waves-effect waves-cyan active"><i class="mdi-social-pages"></i> Pages</a>
                         <div class="collapsible-body">
-                            <ul>                                        
+                            <ul>
                                 <li><a href="page-contact.html">Contact Page</a>
                                 </li>
                                 <li><a href="page-todo.html">ToDos</a>
@@ -298,7 +269,7 @@
                                 </li>
                                 <li><a href="page-500.html">500</a>
                                 </li>
-                                <li class="active"><a href="page-blank.html">Blank</a>
+                                <li><a href="page-blank.html">Blank</a>
                                 </li>
                             </ul>
                         </div>
@@ -307,7 +278,7 @@
                         <div class="collapsible-body">
                             <ul>
                                 <li><a href="eCommerce-products-page.html">Products Page</a>
-                                </li>                                        
+                                </li>
                                 <li><a href="eCommerce-pricing.html">Pricing Table</a>
                                 </li>
                                 <li><a href="eCommerce-invoice.html">Invoice</a>
@@ -317,7 +288,7 @@
                     </li>
                     <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i class="mdi-image-image"></i> Medias</a>
                         <div class="collapsible-body">
-                            <ul>                                        
+                            <ul>
                                 <li><a href="media-gallary-page.html">Gallery Page</a>
                                 </li>
                                 <li><a href="media-hover-effects.html">Image Hover Effects</a>
@@ -327,22 +298,22 @@
                     </li>
                     <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i class="mdi-action-account-circle"></i> User</a>
                         <div class="collapsible-body">
-                            <ul>     
+                            <ul>
                                 <li><a href="user-profile-page.html">User Profile</a>
-                                </li>                                   
+                                </li>
                                 <li><a href="user-login.html">Login</a>
-                                </li>                                        
+                                </li>
                                 <li><a href="user-register.html">Register</a>
                                 </li>
                                 <li><a href="user-forgot-password.html">Forgot Password</a>
                                 </li>
                                 <li><a href="user-lock-screen.html">Lock Screen</a>
-                                </li>                                        
-                                
+                                </li>
+
                             </ul>
                         </div>
                     </li>
-                    
+
                     <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-editor-insert-chart"></i> Charts</a>
                         <div class="collapsible-body">
                             <ul>
@@ -363,29 +334,6 @@
                     </li>
                 </ul>
             </li>
-            <li class="li-hover"><div class="divider"></div></li>
-            <li class="li-hover"><p class="ultra-small margin more-text">MORE</p></li>
-            <li><a href="angular-ui.html"><i class="mdi-action-verified-user"></i> Angular UI  <span class="new badge"></span></a>
-            </li>
-            <li><a href="css-grid.html"><i class="mdi-image-grid-on"></i> Grid</a>
-            </li>
-            <li><a href="css-color.html"><i class="mdi-editor-format-color-fill"></i> Color</a>
-            </li>
-            <li><a href="css-helpers.html"><i class="mdi-communication-live-help"></i> Helpers</a>
-            </li>
-            <li><a href="changelogs.html"><i class="mdi-action-swap-vert-circle"></i> Changelogs</a>
-            </li>                    
-            <li class="li-hover"><div class="divider"></div></li>
-            <li class="li-hover"><p class="ultra-small margin more-text">Daily Sales</p></li>
-            <li class="li-hover">
-                <div class="row">
-                    <div class="col s12 m12 l12">
-                        <div class="sample-chart-wrapper">                            
-                            <div class="ct-chart ct-golden-section" id="ct2-chart"></div>
-                        </div>
-                    </div>
-                </div>
-            </li>
         </ul>
         <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only cyan"><i class="mdi-navigation-menu"></i></a>
         </aside>
@@ -395,35 +343,12 @@
 
       <!-- START CONTENT -->
       <section id="content">
-        
-        <!--breadcrumbs start-->
-        <div id="breadcrumbs-wrapper">
-            <!-- Search for small screen -->
-            <div class="header-search-wrapper grey hide-on-large-only">
-                <i class="mdi-action-search active"></i>
-                <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Explore Materialize">
-            </div>
-          <div class="container">
-            <div class="row">
-              <div class="col s12 m12 l12">
-                <h5 class="breadcrumbs-title">Blank Page</h5>
-                <ol class="breadcrumbs">
-                    <li><a href="index.html">Dashboard</a></li>
-                    <li><a href="#">Pages</a></li>
-                    <li class="active">Blank Page</li>
-                </ol>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--breadcrumbs end-->
-        
-
         <!--start container-->
         <div class="container">
           <div class="section">
 
-            <p class="caption">A Simple Blank Page to use it for your custome design and elements.</p>
+            @yield('content')
+
             <div class="divider"></div>
             <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
           </div>
@@ -595,7 +520,7 @@
   <footer class="page-footer">
     <div class="footer-copyright">
       <div class="container">
-        <span>Copyright © 2017 <a class="grey-text text-lighten-4" href="http://univem.edu.br" target="_blank">GeeksLabs</a> Todos os direitos reservados.</span>
+        <span>Copyright © 2017 <a class="grey-text text-lighten-4" href="http://univem.edu.br" target="_blank">Univem</a> Todos os direitos reservados.</span>
         <span class="right"> Developer By <a class="grey-text text-lighten-4" href="solar.compsi.univem.edu.br">Solar Sistem</a></span>
         </div>
     </div>
@@ -605,18 +530,18 @@
     Scripts
     ================================================ -->
     <!-- jQuery Library -->
-    <script type="text/javascript" src="{{ asset(js/plugins/jquery-1.11.2.min.js) }}"></script>    
+    <script type="text/javascript" src="js/plugins/jquery-1.11.2.min.js"></script>
     <!--materialize js-->
-    <script type="text/javascript" src="{{ asset(js/materialize.js) }}"></script>
+    <script type="text/javascript" src="js/materialize.js"></script>
     <!--prism
     <script type="text/javascript" src="js/prism/prism.js"></script>-->
     <!--scrollbar-->
-    <script type="text/javascript" src="{{ asset(js/plugins/perfect-scrollbar/perfect-scrollbar.min.js }}"></script>
+    <script type="text/javascript" src="js/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <!-- chartist -->
-    <script type="text/javascript" src="{{ asset(js/plugins/chartist-js/chartist.min.js) }}"></script>
+    <script type="text/javascript" src="js/plugins/chartist-js/chartist.min.js"></script>
     <!--plugins.js - Some Specific JS codes for Plugin Settings-->
-    <script type="text/javascript" src="{{ asset(js/plugins.js) }}"></script>
+    <script type="text/javascript" src="js/plugins.js"></script>
     <!--custom-script.js - Add your own theme custom JS-->
-    <script type="text/javascript" src="{{ asset(js/custom-script.js) }}"></script>
+    <script type="text/javascript" src="js/custom-script.js"></script>
 </body>
 </html>

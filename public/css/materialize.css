@@ -903,7 +903,8 @@
 }
 
 .cyan {
-  background-color: #00bcd4 !important;
+  background-color: #F79406 !important;
+  /* background-image: url('/images/background-login.jpg'); */
 }
 
 .cyan-text {
