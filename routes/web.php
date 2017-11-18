@@ -11,11 +11,20 @@
 |
 */
 
-
 Auth::routes();
 
 // Route::get('/', function () {
 //     return view('layouts.aplication');
 // });
+
 Route::get('/', 'HomeController@index')->name('dashboard');
-Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/home', function () {
+    return redirect()->route('dashboard');
+});
+
+Route::get('/redirect', 'FacebookController@redirect');
+Route::get('/callback', 'FacebookController@callback');
+
+// Route::get('/users/{id}/edit', 'UserController@edit')->name('userEditPage');
+// Route::put('/users/{id}', 'UserController@update')->where('id', '[0-9]+');
