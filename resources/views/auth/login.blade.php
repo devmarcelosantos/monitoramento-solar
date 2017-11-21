@@ -35,7 +35,12 @@
 				<div class="input-field col s12">
 					<button type="submit" class="btn waves-effect waves-light col s12">Entrar</button>
 				</div>
+				<fb:login-button 
+  				scope="public_profile,email"
+  				onlogin="checkLoginState();">
+			</fb:login-button>
 			</div>
+			
 			<div class="row">
 				<div class="input-field col s6 m6 l6">
 					<p class="margin medium-small"><a href="{{ route('register') }}">Registrar Agora!</a></p>
