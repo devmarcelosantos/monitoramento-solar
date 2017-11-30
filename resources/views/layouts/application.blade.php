@@ -70,119 +70,135 @@
   <div id="main">
     <!-- START WRAPPER -->
     <div class="wrapper">
-      <!-- START LEFT SIDEBAR NAV-->
-      <aside id="left-sidebar-nav">
-        <ul id="slide-out" class="side-nav fixed leftside-navigation">
-            <li class="user-details cyan darken-2">
-            <div class="row">
-                <div class="col col s4 m4 l4">
-                    <img src="images/avatar.png" alt="" class="circle responsive-img valign profile-image">
+        <!-- START LEFT SIDEBAR NAV-->
+        <aside id="left-sidebar-nav">
+            <ul id="slide-out" class="side-nav fixed leftside-navigation">
+                <li class="user-details cyan darken-2">
+                <div class="row">
+                    <div class="col col s4 m4 l4">
+                        <img src="images/avatar.png" alt="" class="circle responsive-img valign profile-image">
+                    </div>
+                    <div class="col col s8 m8 l8">
+                        <ul id="profile-dropdown" class="dropdown-content">
+                            <li>
+                                <a href=""><i class="mdi-action-face-unlock"></i> Perfil</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="mdi-communication-live-help"></i> Ajuda</a>
+                            </li>
+                            <li class="divider"></li>>
+                            <li>
+                                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="mdi-hardware-keyboard-tab"></i> Logout</a>
+                            </li>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        </ul>
+                        <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown">{{ Auth::user()->name }}<i class="mdi-navigation-arrow-drop-down right"></i></a>
+                        <p class="user-roal">Administrator</p>
+                    </div>
                 </div>
-                <div class="col col s8 m8 l8">
-                    <ul id="profile-dropdown" class="dropdown-content">
-                        <li>
-                            <a href=""><i class="mdi-action-face-unlock"></i> Perfil</a>
+                </li>
+                <li class="bold">
+                    <a href="{{ route('dashboard') }}" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Dashboard</a>
+                </li>
+                <li class="no-padding">
+                    <ul class="collapsible collapsible-accordion">
+                        <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-action-view-carousel"></i> Clientes</a>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li>
+                                        <a href="{{ route('createCustomer') }}">Cadastrar</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('showCustomers') }}">Listar</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
-                        <li>
-                            <a href="#"><i class="mdi-communication-live-help"></i> Ajuda</a>
-                        </li>
-                        <li class="divider"></li>>
-                        <li>
-                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="mdi-hardware-keyboard-tab"></i> Logout</a>
-                        </li>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            {{ csrf_field() }}
-                        </form>
                     </ul>
-                    <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown">{{ Auth::user()->name }}<i class="mdi-navigation-arrow-drop-down right"></i></a>
-                    <p class="user-roal">Administrator</p>
+                </li>
+            </ul>
+            <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only cyan">
+                <i class="mdi-navigation-menu"></i>
+            </a>
+        </aside>
+        <!-- END LEFT SIDEBAR NAV-->
+
+        <!-- //////////////////////////////////////////////////////////////////////////// -->
+
+        <!-- START CONTENT -->
+        <section id="content">
+            <!--breadcrumbs start-->
+            <div id="breadcrumbs-wrapper">
+                <!-- Search for small screen -->
+                <div class="header-search-wrapper grey hide-on-large-only">
+                    <i class="mdi-action-search active"></i>
+                    <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Explore Materialize">
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            @yield('page-title')
+                        </div>
+                    </div>
                 </div>
             </div>
-            </li>
-            <li class="bold"><a href="{{ route('dashboard') }}" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Dashboard</a>
-            </li>
-            <li class="no-padding">
-                <ul class="collapsible collapsible-accordion">
-                    <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-action-view-carousel"></i> Meus Dados</a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li>
-                                    <a href="layout-fullscreen.html">Atualizar</a>
-                                </li>
-                            </ul>
+            <!--breadcrumbs end-->
+            <div class="container">
+	            <div class="section">
+                    @yield('content')
+                    <div class="divider"></div>
+                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                </div>
+            </div>
+            <!--end container-->
+        </section>
+        <!-- END CONTENT -->
+
+    <!-- //////////////////////////////////////////////////////////////////////////// -->
+            <!-- START RIGHT SIDEBAR NAV-->
+            <aside id="right-sidebar-nav">
+                <ul id="chat-out" class="side-nav rightside-navigation">
+                    <li class="li-hover">
+                        <a href="#" data-activates="chat-out" class="chat-close-collapse right"><i class="mdi-navigation-close"></i></a>
+                        <div id="right-search" class="row">
+                            <form class="col s12">
+                                <div class="input-field">
+                                    <i class="mdi-action-search prefix"></i>
+                                    <input id="icon_prefix" type="text" class="validate">
+                                    <label for="icon_prefix">Search</label>
+                                </div>
+                            </form>
                         </div>
                     </li>
                 </ul>
-            </li>
-        </ul>
-        <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only cyan"><i class="mdi-navigation-menu"></i></a>
-        </aside>
-      <!-- END LEFT SIDEBAR NAV-->
-
-      <!-- //////////////////////////////////////////////////////////////////////////// -->
-
-      <!-- START CONTENT -->
-      <section id="content">
-        <!--start container-->
-        <div class="container">
-          <div class="section">
-
-            @yield('content')
-
-            <div class="divider"></div>
-            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-          </div>
+            </aside>
+            <!-- LEFT RIGHT SIDEBAR NAV-->
         </div>
-        <!--end container-->
-      </section>
-      <!-- END CONTENT -->
-
-      <!-- //////////////////////////////////////////////////////////////////////////// -->
-      <!-- START RIGHT SIDEBAR NAV-->
-      <aside id="right-sidebar-nav">
-        <ul id="chat-out" class="side-nav rightside-navigation">
-            <li class="li-hover">
-                <a href="#" data-activates="chat-out" class="chat-close-collapse right"><i class="mdi-navigation-close"></i></a>
-                <div id="right-search" class="row">
-                    <form class="col s12">
-                        <div class="input-field">
-                            <i class="mdi-action-search prefix"></i>
-                            <input id="icon_prefix" type="text" class="validate">
-                            <label for="icon_prefix">Search</label>
-                        </div>
-                    </form>
-                </div>
-            </li>
-        </ul>
-      </aside>
-      <!-- LEFT RIGHT SIDEBAR NAV-->
-
+        <!-- END WRAPPER -->
     </div>
-    <!-- END WRAPPER -->
+    <!-- END MAIN -->
 
-  </div>
-  <!-- END MAIN -->
    <!-- //////////////////////////////////////////////////////////////////////////// -->
 
-  <!-- START FOOTER -->
-  <footer class="page-footer">
-    <div class="footer-copyright">
-      <div class="container">
-        <span>Copyright © 2017 <a class="grey-text text-lighten-4" href="http://univem.edu.br" target="_blank">Univem</a> Todos os direitos reservados.</span>
-        <span class="right"> Developer By <a class="grey-text text-lighten-4" href="solar.compsi.univem.edu.br">Solar Sistem</a></span>
+    <!-- START FOOTER -->
+    <footer class="page-footer">
+        <div class="footer-copyright">
+            <div class="container">
+                <span>Copyright © 2017 <a class="grey-text text-lighten-4" href="http://univem.edu.br" target="_blank">Univem</a> Todos os direitos reservados.</span>
+                <span class="right"> Developer By <a class="grey-text text-lighten-4" href="solar.compsi.univem.edu.br">Solar Sistem</a></span>
+            </div>
         </div>
-    </div>
-  </footer>
-  <!-- END FOOTER -->
-<!-- ================================================
-    Scripts
-    ================================================ -->
+    </footer>
+    <!-- END FOOTER -->
+    <!-- Scripts -->
     <!-- jQuery Library -->
     <script type="text/javascript" src="js/plugins/jquery-1.11.2.min.js"></script>
     <!--materialize js-->
     <script type="text/javascript" src="js/materialize.js"></script>
-    <!--prism
-    <script type="text/javascript" src="js/prism/prism.js"></script>-->
+    <!--prism-->
+    <script type="text/javascript" src="js/plugins/prism/prism.js"></script>
     <!--scrollbar-->
     <script type="text/javascript" src="js/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <!-- chartist -->
@@ -191,5 +207,8 @@
     <script type="text/javascript" src="js/plugins.js"></script>
     <!--custom-script.js - Add your own theme custom JS-->
     <script type="text/javascript" src="js/custom-script.js"></script>
+    <!--angularjs-->
+    <script type="text/javascript" src="js/plugins/angular.min.js"></script>
+    <script type="text/javascript" src="js/plugins/formatter/jquery.formatter.min.js"></script>
 </body>
 </html>

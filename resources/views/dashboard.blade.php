@@ -1,10 +1,28 @@
 @extends('layouts.application')
 
 @section('content')
+<!--breadcrumbs start-->
+<div id="breadcrumbs-wrapper">
+    <!-- Search for small screen -->
+    <div class="header-search-wrapper grey hide-on-large-only">
+        <i class="mdi-action-search active"></i>
+        <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Explore Materialize">
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <h5 class="breadcrumbs-title">DASHBOARD</h5>
+            </div>
+        </div>
+    </div>
+</div>
+<!--breadcrumbs end-->
+
+<!--start container-->
+<div class="container">
     <!--card stats start-->
-    <div id="card-stats" class="seaction">
-        <h4 class="header">DADOS DO SISTEMA</h4>
-        <p> Veja abaixo os dados em tempo real.</p>
+    <div id="card-stats" class="section">
+        <p> Veja abaixo os dados do sistema em tempo real.</p>
         <div class="row">
             <div class="col s12 m6 l3">
                 <div class="card">
@@ -61,4 +79,5 @@
         </div>
     </div>
     <!--card stats end-->
+</div>
 @endsection
