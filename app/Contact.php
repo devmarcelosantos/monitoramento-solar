@@ -4,9 +4,9 @@ namespace Solar;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Customer extends Model
+class Contact extends Model
 {
     protected $fillable = [
-        'name', 'cpf', 'cnpj', 'cep', 'complement', 'number'
+        'customer_id', 'ddd', 'phone', 'email'
     ];
 }

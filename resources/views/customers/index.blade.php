@@ -11,12 +11,12 @@
 			<table class="striped">
 				<thead>
 					<tr>
-						<th data-field="codCliente">Código do Cliente</th>
+						<th data-field="codCliente">Cod. Cliente</th>
 						<th data-field="codCliente">Nome</th>
 						<th data-field="cpf">CPF</th>
 						<th data-field="cnpj">CNPJ</th>
 						<th data-field="endereco">Endereço</th>
-						<!-- <th data-field="price">Ver contato</th> -->
+						<th data-field="contact">Ver contato</th>
 						<th data-field="endereco">Ações</th>
 					</tr>
 				</thead>
@@ -28,10 +28,14 @@
 						<td>{{ $customer->cpf }}</td>
 						<td>{{ $customer->cnpj }}</td>
 						<td><a href="{{ route('addressCustomer', ['id' => $customer->id]) }}">Ver endereço</a></td>
+						<td><a href="{{ route('contactCustomer', ['id' => $customer->id]) }}">Ver contato</a></td>
 						<td>
 							<a href="{{ route('editCustomer', ['id' => $customer->id]) }}" class="btn waves-effect waves-light indigo">Editar</a>
-
-							<a href="" class="btn waves-effect waves-light red">Remover</a>
+							<form method="POST" action="{{ route('deleteCustomer', ['id' => $customer->id]) }}">
+								<input type="hidden" name="_method" value="DELETE">
+								{{ csrf_field() }}
+								<button type="submit" class="btn waves-effect waves-light red">Remover</button>
+							</form>
 						</td>
 					</tr>
 					@endforeach
@@ -40,26 +44,4 @@
 		</div>
 	</div>
 </div>
-
-<script type="text/javascript">
-jQuery(function($){
-   $("#cep").change(function(){
-      var cep_code = $(this).val();
-      if( cep_code.length <= 0 ) return;
-      $.get("http://apps.widenet.com.br/busca-cep/api/cep.json", { code: cep_code },
-         function(result){
-            if( result.status!=1 ){
-               alert(result.message || "Houve um erro desconhecido");
-               return;
-            }
-            $("input#cep").val( result.code );
-            $("input#estado").val( result.state );
-            $("input#cidade").val( result.city );
-            $("input#bairro").val( result.district );
-            $("input#endereco").val( result.address );
-            $("input#estado").val( result.state );
-         });
-   });
-});
-</script>
 @endsection

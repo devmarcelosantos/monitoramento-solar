@@ -53,10 +53,6 @@
                     <ul class="left">
                       <li><h1 class="logo-wrapper"><a href="index.html" class="brand-logo darken-1"><img src="images/materialize-logo.png" alt="materialize logo"></a> <span class="logo-text">Materialize</span></h1></li>
                     </ul>
-                    <div class="header-search-wrapper hide-on-med-and-down">
-                        <i class="mdi-action-search"></i>
-                        <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Buscar no sistema..."/>
-                    </div>
                 </div>
             </nav>
         </div>
@@ -80,15 +76,15 @@
                     </div>
                     <div class="col col s8 m8 l8">
                         <ul id="profile-dropdown" class="dropdown-content">
-                            <li>
+                            {{--  <li>
                                 <a href=""><i class="mdi-action-face-unlock"></i> Perfil</a>
                             </li>
                             <li>
                                 <a href="#"><i class="mdi-communication-live-help"></i> Ajuda</a>
-                            </li>
-                            <li class="divider"></li>>
+                            </li>  --}}
+                            <li class="divider"></li>
                             <li>
-                                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="mdi-hardware-keyboard-tab"></i> Logout</a>
+                                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="mdi-hardware-keyboard-tab"></i> Sair</a>
                             </li>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 {{ csrf_field() }}
@@ -132,10 +128,6 @@
             <!--breadcrumbs start-->
             <div id="breadcrumbs-wrapper">
                 <!-- Search for small screen -->
-                <div class="header-search-wrapper grey hide-on-large-only">
-                    <i class="mdi-action-search active"></i>
-                    <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Explore Materialize">
-                </div>
                 <div class="container">
                     <div class="row">
                         <div class="col s12 m12 l12">
@@ -149,7 +141,7 @@
 	            <div class="section">
                     @yield('content')
                     <div class="divider"></div>
-                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                    <br><br><br><br><br><br><br><br><br><br><br><br>
                 </div>
             </div>
             <!--end container-->
