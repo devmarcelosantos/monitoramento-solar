@@ -15,7 +15,7 @@ da aplicação, possamos detectar possíveis erros ou falhas no sistema para uma
 ### Desenvolvedores:
 - Marcelo Santos - RA: 552402
 - Maik Rodrigues - RA: 556254
-- Valdeir Neto
+- Valdeir Neto   - RA: 540838
 
 ### Aviso:
 O presente projeto vem sendo desenvolvido utilizando metodologias ágeis, como o Scrum, XP e Kamban como um auxilio ao desenvolvedor. Com isso,
